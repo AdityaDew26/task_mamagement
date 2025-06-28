@@ -1,0 +1,52 @@
+/* admin.css */
+
+.main-content {
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.task-card, .MuiCard-root, .MuiPaper-root {
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.task-card:hover, .MuiCard-root:hover, .MuiPaper-root:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.MuiDrawer-paper {
+  background: linear-gradient(to bottom, #1976d2, #2196f3);
+  color: white;
+}
+
+.MuiListItemButton-root {
+  color: white;
+  border-radius: 12px;
+  margin: 6px;
+  transition: background-color 0.3s;
+}
+
+.MuiListItemButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.MuiListItemIcon-root {
+  color: white;
+}
