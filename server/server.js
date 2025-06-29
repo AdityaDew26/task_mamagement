@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import cors from 'cors';
 import authRoutes from "./routes/authRoutes.js"
-import adminRoutes from "./routes/adminRoutes.js"
 import taskRoutes from "./routes/taskRoutes.js"
 import teamRoutes from './routes/teamRoutes.js';
 
@@ -18,7 +17,7 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/auth", authRoutes)
-app.use('/api/admin', adminRoutes);
+
 app.use('/api/tasks', taskRoutes);
 app.use('/api/teams', teamRoutes);
 

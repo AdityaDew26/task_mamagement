@@ -114,7 +114,6 @@ const TaskManager = () => {
 
   return (
     <Box>
-      <Typography variant="h4" gutterBottom>Task Management</Typography>
       <Button variant="contained" onClick={() => handleOpen()}>
         Create Task
       </Button>

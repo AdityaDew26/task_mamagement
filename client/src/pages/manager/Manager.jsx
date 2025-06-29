@@ -11,6 +11,7 @@ import {
   Logout as LogoutIcon
 } from '@mui/icons-material';
 import { getProfile } from '../../api/authApi'; // adjust path if needed
+import TaskManager from "../../components/tasks/Task"
 
 const drawerWidth = 240;
 
@@ -114,9 +115,7 @@ const ManagerDashboard = () => {
         <Typography variant="h4" gutterBottom>
           Welcome, {user.name}
         </Typography>
-        <Typography variant="body1">
-          This is your manager dashboard. You can view and manage projects, team activities, and reports.
-        </Typography>
+        <TaskManager/>
       </Box>
     </Box>
   );

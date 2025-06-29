@@ -12,7 +12,8 @@ const TaskModal = ({
   formData,
   handleChange,
   isEdit,
-  teams = [] // ✅ Accept teams as a prop
+  teams = [],
+  disableTeam = false
 }) => {
   return (
     <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
@@ -36,8 +37,9 @@ const TaskModal = ({
         />
 
         <FormControl fullWidth sx={{ mt: 2 }}>
-          <InputLabel>Status</InputLabel>
+          <InputLabel id="status-label">Status</InputLabel>
           <Select
+            labelId="status-label"
             name="status"
             value={formData.status}
             onChange={handleChange}
@@ -49,20 +51,36 @@ const TaskModal = ({
           </Select>
         </FormControl>
 
-      <FormControl fullWidth sx={{ mt: 2 }}>
-  <InputLabel>Team</InputLabel>
-  <Select
-    name="team"
-    value={formData.team}
-    onChange={handleChange}
-    label="Team"
-  >
-    {teams.map((team) => (
-      <MenuItem key={team._id} value={team._id}>
-        {team.name}
-      </MenuItem>
-    ))}
-  </Select>
+        <FormControl fullWidth sx={{ mt: 2 }}>
+          {disableTeam ? (
+            <TextField
+              label="Team"
+              value={formData.teamName || 'No team'}
+              fullWidth
+              disabled
+            />
+          ) : (
+            <>
+              <InputLabel id="team-label">Team</InputLabel>
+              <Select
+                labelId="team-label"
+                name="team"
+                value={formData.team}
+                onChange={handleChange}
+                label="Team"
+              >
+                {teams.length > 0 ? (
+                  teams.map((team) => (
+                    <MenuItem key={team._id} value={team._id}>
+                      {team.name}
+                    </MenuItem>
+                  ))
+                ) : (
+                  <MenuItem value="">No teams available</MenuItem>
+                )}
+              </Select>
+            </>
+          )}
         </FormControl>
       </DialogContent>
 

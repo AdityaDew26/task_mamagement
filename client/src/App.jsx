@@ -10,6 +10,7 @@ import ViewerDashboard from './pages/viewer/Viewer'
 import TaskManager from './components/tasks/Task'
 import ErrorBoundary from './ErrorBoundary';
 import TeamManager from './components/teams/Team'
+import SendNotificationForm from './pages/admin/message/SendNotification';
 
 
 
@@ -27,6 +28,8 @@ const App = () => {
       <TaskManager />
     </ErrorBoundary>}/>
     <Route path='/teams' element={<TeamManager/>}/>
+    <Route path='/message' element={<SendNotificationForm/>}/>
+
         
 
      </Routes>

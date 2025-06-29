@@ -5,12 +5,13 @@ import {
 } from '@mui/material';
 import {
   Menu as MenuIcon,
-  Edit as EditIcon,
-  Article as ArticleIcon,
+ Groups as GroupsIcon,
+  AccountCircle as AccountCircleIcon,
   Settings as SettingsIcon,
   Logout as LogoutIcon
 } from '@mui/icons-material';
 import { getProfile } from '../../api/authApi'; 
+import EditorTaskManager from './task/EditorTasManager';
 
 const drawerWidth = 240;
 
@@ -47,24 +48,24 @@ const EditorDashboard = () => {
     };
     fetchUser();
   }, []);
+const drawer = (
+  <Box sx={{ width: drawerWidth }}>
+    <Toolbar />
+    <List>
+      {[
+        { text: 'Teams', icon: <GroupsIcon /> },
+        { text: 'Profile', icon: <AccountCircleIcon /> },
+        { text: 'Settings', icon: <SettingsIcon /> }
+      ].map((item) => (
+        <ListItem button key={item.text}>
+          <ListItemIcon>{item.icon}</ListItemIcon>
+          <ListItemText primary={item.text} />
+        </ListItem>
+      ))}
+    </List>
+  </Box>
+);
 
-  const drawer = (
-    <Box sx={{ width: drawerWidth }}>
-      <Toolbar />
-      <List>
-        {[
-          { text: 'Edit Articles', icon: <EditIcon /> },
-          { text: 'My Articles', icon: <ArticleIcon /> },
-          { text: 'Settings', icon: <SettingsIcon /> }
-        ].map((item) => (
-          <ListItem button key={item.text}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -115,7 +116,7 @@ const EditorDashboard = () => {
           Welcome, {user.name}
         </Typography>
         <Typography variant="body1">
-          Here you can manage and edit content, view assigned articles, and update settings.
+         <EditorTaskManager/>
         </Typography>
       </Box>
     </Box>

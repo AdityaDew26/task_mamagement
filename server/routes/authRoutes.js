@@ -9,4 +9,5 @@ router.post('/login', Login);
 router.get('/me', authMiddleware, getMe);
 router.get('/users', getAllUsers);
 
+
 export default router;

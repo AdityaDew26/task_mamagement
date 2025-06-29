@@ -105,7 +105,7 @@ const AdminDashboard = () => {
           { text: 'Dashboard', icon: <DashboardIcon />, path: '/admin/dashboard' },
           { text: 'Teams', icon: <TeamsIcon />, path: '/teams' },
           { text: 'Tasks', icon: <TaskIcon />, path: '/tasks' },
-          { text: 'Messages', icon: <MailIcon />, path: '/messages' },
+          { text: 'Messages', icon: <MailIcon />, path: '/message' },
           { text: 'Profile', icon: <ProfileIcon />, path: '/profile' },
         ].map((item) => (
           <ListItemButton key={item.text} onClick={() => (window.location.href = item.path)}>
